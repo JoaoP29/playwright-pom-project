@@ -2,7 +2,8 @@ import pytest
 from pages.common_page import CommonPage
 from pages.login_page import LoginPage
 from pages.home_page import HomePage
-from pages.pix_page import PixPage 
+from pages.pix_page import PixPage
+from pages.loans_page import LoansPage
 
 @pytest.fixture
 def page(page):
@@ -25,3 +26,7 @@ def home_page(page):
 @pytest.fixture
 def pix_page(page):
     return PixPage(page)
+
+@pytest.fixture
+def loans_page(page):
+    return LoansPage(page)

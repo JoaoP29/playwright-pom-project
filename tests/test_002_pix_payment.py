@@ -4,7 +4,7 @@ def test_002_pix_payment(page, login_page, home_page, pix_page, common_page) -> 
     home_page.access_menu("Fazer Pix")
     pix_page.perform_pix_payment("999.999.999-99", "10,00")
     pix_page.assert_pix_success()
-    pix_page.return_to_home()
+    common_page.return_to_home()
     common_page.assert_text("4.990,00")
     home_page.access_menu("Ver Extrato")
     common_page.assert_text("Pix para 999.999.999-99 - R$ -10,00")

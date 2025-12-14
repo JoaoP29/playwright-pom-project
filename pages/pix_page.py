@@ -7,7 +7,6 @@ class PixPage:
         self.amount_field = page.get_by_role("textbox", name="Valor:")
         self.send_pix_button = page.get_by_role("button", name="Enviar Pix")
         self.verify_bank_statement_button = page.get_by_role("button", name="Ver Extrato")
-        self.return_to_home_button = page.get_by_role("button", name="Voltar para a Home")
 
     def perform_pix_payment(self, pix_key: str, amount: str) -> None:
         self.pix_key_field.press_sequentially(pix_key)
@@ -17,7 +16,3 @@ class PixPage:
     def assert_pix_success(self) -> None:
         expect(self.page.get_by_text("Transação Realizada com Sucesso!")).to_be_visible()
         expect(self.page.get_by_text("A transação foi concluída com sucesso. Você pode voltar para a página principal e continuar suas operações")).to_be_visible()
-
-    def return_to_home(self) -> None:
-        self.return_to_home_button.wait_for()
-        self.return_to_home_button.click()
