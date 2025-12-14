@@ -9,10 +9,12 @@ class PixPage:
         self.verify_bank_statement_button = page.get_by_role("button", name="Ver Extrato")
 
     def perform_pix_payment(self, pix_key: str, amount: str) -> None:
+        self.pix_key_field.wait_for()
         self.pix_key_field.press_sequentially(pix_key)
         self.amount_field.press_sequentially(amount)
         self.send_pix_button.click()
 
     def assert_pix_success(self) -> None:
+        self.page.get_by_text("Transação Realizada com Sucesso!").wait_for()
         expect(self.page.get_by_text("Transação Realizada com Sucesso!")).to_be_visible()
         expect(self.page.get_by_text("A transação foi concluída com sucesso. Você pode voltar para a página principal e continuar suas operações")).to_be_visible()

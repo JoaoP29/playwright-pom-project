@@ -14,4 +14,5 @@ class LoginPage:
         self.username_input.press_sequentially(username)
         self.password_input.press_sequentially(password)
         self.login_button.click()
+        self.page.get_by_text("Bem-vindo ao SimulaBank!").wait_for()
 

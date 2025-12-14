@@ -1,4 +1,4 @@
-def test_003_take_out_loan_2000(page, login_page, home_page, loans_page, common_page):
+def test_004_take_out_loan_2000(page, login_page, home_page, loans_page, common_page):
     login_page.navigate()
     login_page.login("user1", "pass1")
     home_page.access_menu("Empréstimos")
